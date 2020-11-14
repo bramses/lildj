@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta content="utf-8" http-equiv="encoding" />
+    <style>
+      .loader {
+        border-top: 16px solid blue;
+        border-right: 16px solid green;
+        border-bottom: 16px solid red;
+        border-left: 16px solid pink;
+        border-radius: 50%;
+        animation: spin 2s linear infinite;
+        width: 120px;
+        height: 120px;
+      }
+
+      #loadingAnimation {
+        top: 45%;
+        left: 45%;
+        position: fixed;
+        display: block;
+        opacity: 0.9;
+        z-index: 99;
+        text-align: center;
+      }
+
+      h1 {
+        font-family: "Sansita Swashed", cursive;
+        font-size: 8vh;
+        color: whitesmoke;
+        margin-top: 0%;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      #main {
+        margin: 0 auto;
+        width: 692px;
+      }
+
+      #resultPlaylist {
+        margin: 0 auto;
+        width: 240px;
+        text-align: center;
+        margin-top: 15px;
+        padding-top: 35px;
+      }
+
+      html {
+        height: 100%;
+        background-image: linear-gradient(
+          109.6deg,
+          rgba(5, 84, 94, 1) 16%,
+          #bbb 91.1%
+        );
+      }
+
+      label {
+        font-family: "Sansita Swashed", cursive;
+        font-size: 4vh;
+        color: whitesmoke;
+      }
+
+      p {
+        font-family: "Sansita Swashed", cursive;
+        font-size: 2.5vh;
+        color: whitesmoke;
+      }
+
+      #controls {
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lil' DJ</h1>
+    <div id="loadingAnimation">
+      <div class="loader"></div>
+      <p>Loading Results...</p>
+    </div>
+    <div id="controls">
+      <a
+        id="signinlink"
+        href="https://accounts.spotify.com/authorize?client_id=43c2a89522f5454386bb37789afebe9a&response_type=code&redirect_uri=http://localhost:8000/&scope=playlist-modify-private%20playlist-modify-public%20playlist-read-private%20user-read-private%20user-read-email&state=some-state"
+        >Sign in to Spotify</a
+      >
+    </div>
+
+    <div id="main">
+      <label for="inputGPT">What's the vibe?</label><br />
+      <input type="text" id="inputGPT" name="inputGPT" /><br /><br />
+      <button id="submitBtn">Submit</button><br />
+      <div id="resultPlaylist">
+        <img
+          id="playlistPic"
+          src=""
+        />
+        <p id="playlistName"></p>
+        <a id="playlistLink"></a>
+      </div>
+      <p id="result"></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!-- https://i.scdn.co/image/ab67616d0000b273b08b996d08001270adc8b555 -->
